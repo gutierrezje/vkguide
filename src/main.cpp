@@ -4,11 +4,11 @@ int main()
 {
 	VulkanEngine engine;
 
-	engine.init();	
-	
-	engine.run();	
+	engine.init();
 
-	engine.cleanup();	
+	engine.run();
+
+	engine.cleanup();
 
 	return 0;
 }

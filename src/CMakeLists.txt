@@ -21,6 +21,9 @@ add_executable (engine
 
 target_compile_definitions(engine PUBLIC GLM_FORCE_DEPTH_ZERO_TO_ONE)
 target_include_directories(engine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+# SDL's CMake target may expose build-tree include dirs; clang-tidy/clangd
+# work best when the source include dir is also available.
+target_include_directories(engine PUBLIC "${PROJECT_SOURCE_DIR}/third_party/SDL/include")
 
 set_property(TARGET engine PROPERTY CXX_STANDARD 23)
 set_property(TARGET engine PROPERTY CXX_STANDARD_REQUIRED ON)
