@@ -1,15 +1,9 @@
-﻿# CMakeList.txt : CMake project for vulkan_guide, include source and define
+# CMakeList.txt : CMake project for vulkan_guide, include source and define
 # project specific logic here.
 #
 cmake_minimum_required (VERSION 3.21)
 
 project ("vulkan_guide")
-
-option(VKGUIDE_EXPORT_COMPILE_COMMANDS "Generate compile_commands.json (best with Ninja)" ON)
-if(VKGUIDE_EXPORT_COMPILE_COMMANDS)
-  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-endif()
-
 
 find_package(Vulkan REQUIRED)
 
