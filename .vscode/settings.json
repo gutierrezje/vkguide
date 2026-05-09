@@ -1,0 +1,8 @@
+{
+  "cmake.useCMakePresets": "always",
+  "cmake.configurePreset": "ninja-debug",
+  "cmake.buildPreset": "ninja-debug",
+  "cmake.buildTarget": "engine",
+  "cmake.useVsDeveloperEnvironment": true
+}
+

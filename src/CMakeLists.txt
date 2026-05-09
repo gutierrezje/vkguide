@@ -45,7 +45,7 @@ else()
   target_compile_options(engine PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
-target_link_libraries(engine PUBLIC vma glm Vulkan::Vulkan fmt::fmt stb_image SDL2::SDL2 vkbootstrap imgui fastgltf::fastgltf)
+target_link_libraries(engine PUBLIC vma glm Vulkan::Vulkan stb_image SDL2::SDL2 vkbootstrap imgui fastgltf::fastgltf)
 
 option(VKGUIDE_ENABLE_PCH "Use precompiled headers for engine" ON)
 if(VKGUIDE_ENABLE_PCH)

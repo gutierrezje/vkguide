@@ -15,18 +15,18 @@
 #include <vulkan/vk_enum_string_helper.h>
 #include <vk_mem_alloc.h>
 
-#include <fmt/core.h>
+#include <print>
 
 #include <glm/mat4x4.hpp>
 #include <glm/vec4.hpp>
 
-#define VK_CHECK(x)                                                                                \
-	do                                                                                             \
-	{                                                                                              \
-		VkResult err = x;                                                                          \
-		if (err)                                                                                   \
-		{                                                                                          \
-			fmt::println("Detected Vulkan error: {}", string_VkResult(err));                       \
-			abort();                                                                               \
-		}                                                                                          \
-	} while (0)
+inline void vk_check(VkResult err)
+{
+	if (err != VK_SUCCESS)
+	{
+		std::println("Detected Vulkan error: {}", string_VkResult(err));
+		abort();
+	}
+}
+
+#define VK_CHECK(x) vk_check((x))
