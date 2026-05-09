@@ -5,6 +5,11 @@ cmake_minimum_required (VERSION 3.21)
 
 project ("vulkan_guide")
 
+option(VKGUIDE_EXPORT_COMPILE_COMMANDS "Generate compile_commands.json (best with Ninja)" ON)
+if(VKGUIDE_EXPORT_COMPILE_COMMANDS)
+  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endif()
+
 
 find_package(Vulkan REQUIRED)
 
@@ -16,9 +21,6 @@ set (CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
 add_subdirectory(src)
 
 find_program(GLSL_VALIDATOR glslangValidator HINTS /usr/bin /usr/local/bin $ENV{VULKAN_SDK}/Bin/ $ENV{VULKAN_SDK}/Bin32/)
-
-
-
 
 file(GLOB_RECURSE GLSL_SOURCE_FILES
     "${PROJECT_SOURCE_DIR}/shaders/*.frag"
